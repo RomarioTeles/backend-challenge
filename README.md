@@ -44,18 +44,18 @@ The process should be closest possible to "real-time", balancing your choices in
 scalability.
 
 ## Nice to have features (describe or implement):
-* Asynchronous processing
+* **Asynchronous processing**
 É possível utilizar programação Reativa no Spring utilizando, por exemplo o WebFlux. Porém, eu ainda não tive a oportunidade de trabalhar com programação reativa, por isso eu não saberia descrever aqui uma solução.
-* Database
+* **Database**
 Utilizei Hibernate e Mysql
-* Docker
+* **Docker**
 O Docker trabalha com o conceito de Containers. Onde cada container é uma máquina virtual e é possível manter vários ambientes de trabalho, de forma que pode-se trabalhar em desenvolvimento com um container idêntico ao de produção.
-* AWS
+* **AWS**
 Neste caso eu não usaria o Spring Boot, eu criaria todos os resources com Functions Lambda e acessarias eles via API Gateway (também da AWS). Aproveitaria o baixo custo de manter a solução na Amazon e poderia utilizar outros servicos, com S3 buckets,
 RDS entre outros dependendo do negócio do sistema.
-* Security
+* **Security**
 Eu incluiria o Spring Security Rest na Api e aproveitaria as facilidades de criar um sistema oAuth completo, a partir das features que o Spring Security disponibiliza. 
-* Swagger
+* **Swagger**
 Foi implementado
-* Clean Code
+* **Clean Code**
 Deixei o mais limpo possível.
