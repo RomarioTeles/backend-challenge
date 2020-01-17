@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.invillia.acme.controllers.dto.StoreDto;
+
 @Entity
 public class Store {
 
@@ -54,10 +56,28 @@ public class Store {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Long getCode() {
+		return code;
+	}
+
+	public void setCode(Long code) {
+		this.code = code;
+	}
 
 	@Override
 	public String toString() {
 		return "Store [name=" + name + "]";
+	}
+
+	public StoreDto getDto() {
+		
+		StoreDto dto = new StoreDto();
+		dto.setAddress(address);
+		dto.setCode(code);
+		dto.setName(name);
+		
+		return dto;
 	}
 	
 }

@@ -1,25 +1,46 @@
 package com.invillia.acme.domain;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Payment {
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(unique=true)
 	private Long code;
 	
+	
+	@OneToOne
+    @JoinColumn(name = "order_id")
 	private Order order;
 	
+	@Enumerated(EnumType.STRING)
 	private PaymentStatus status;
+	
+	@Column(name="credit_card_number")
+	private String creditCardNumber;
+	
+	@Column(name="payment_date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date paymentDate;
 	
 	public Payment() {
 		super();
-	}
-
-	public Payment(Long id, Long code, Order order, PaymentStatus status) {
-		super();
-		this.id = id;
-		this.code = code;
-		this.order = order;
-		this.status = status;
 	}
 
 	public Long getId() {
@@ -28,6 +49,22 @@ public class Payment {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getCreditCardNumber() {
+		return creditCardNumber;
+	}
+
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
+
+	public Date getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 
 	public Long getCode() {
